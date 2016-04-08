@@ -1,6 +1,5 @@
 #!/bin/bash
 
-recipient="$2"
 cmd=$(rawler "$1" --wait 1 | grep 200)
 
 if [ -z $recipient ]
@@ -9,9 +8,9 @@ if [ -z $recipient ]
 	     echo "Useage: $0 [site-to-crawl] [recipient of alerts]" 
 	exit 1 
 elif [[ $cmd == *200* ]]
-	then echo "$cmd" | mail -s "ALERT: 404's found on $1" "$2"
+	then echo "$cmd" 
 else
-	echo "Congrats! No 404's found!" | mail -s "No 404's on $1" "$2"
+	echo "Congrats! No 404's found!" 
 fi
 
 exit 0
