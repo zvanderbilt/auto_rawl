@@ -8,4 +8,3 @@ else
 	echo "Congrats! No 404's found!" 
 fi
 
-exit 
