@@ -2,9 +2,12 @@
 
 cmd=$(rawler "$1" --wait 1 | grep 200)
 
-if [[ $cmd == *200* ]]
-	then echo "$cmd" 
+if [ -z $1 ]
+	then echo "Aborting, no target specified..."
+	     echo ""
+	     echo "Useage: $0 [site-to-crawl]" 
+elif [[ $cmd == *200* ]]
+	then echo "$cmd" >> broke 
 else
 	echo "Congrats! No 404's found!" 
 fi
-
