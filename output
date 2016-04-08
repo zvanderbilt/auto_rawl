@@ -1,5 +1,0 @@
-I, [2016-04-08T15:21:50.674502 #20553]  INFO -- : 200 - http://kiosk.tm
-I, [2016-04-08T15:22:08.449229 #20562]  INFO -- : 200 - http://aws.amazon.com/amazon-linux-ami/
-I, [2016-04-08T15:22:15.952423 #20562]  INFO -- : 200 - http://aws.amazon.com/
-I, [2016-04-08T15:22:22.213204 #20562]  INFO -- : 200 - http://aws.amazon.com/ec2/
-I, [2016-04-08T15:22:39.690774 #20562]  INFO -- : 200 - http://httpd.apache.org/
