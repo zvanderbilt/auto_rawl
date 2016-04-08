@@ -8,4 +8,6 @@ else
 	echo "Congrats! No 404's found!" | mail -s "No 404's on $1" $2
 fi
 
+echo "$*"
+
 exit 0
