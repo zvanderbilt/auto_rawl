@@ -12,7 +12,7 @@ elif [[ $cmd == *200* ]]
 	echo "Boo, 404s found on $broke"
 	echo "$showme"
 else
-	echo "Congrats! No 404's found!" 
+	echo "Congrats! No 404's found on $broke" 
 fi
 
 
