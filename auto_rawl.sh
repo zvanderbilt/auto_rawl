@@ -13,7 +13,7 @@ elif [[ $cmd == *200* ]]
 	echo "Boo, 404s found on $broke"
 	echo "$showme"
 elif [[ $cmd != 404 ]]
-        then readarray -t array <<< "$cmd"
+        then readarray -t array2 <<< "$cmd"
         showme=$(printf -- "%s\n" "${array[@]}")
         notbroke=$(echo $showme | awk ' {print $NF} ')
 	echo "Congrats! No 404's found on $notbroke" 
