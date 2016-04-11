@@ -12,7 +12,7 @@ elif [[ $cmd == *200* ]]
 	broke=$(echo $showme | awk ' {print $NF} ')
 	echo "Boo, 404s found on $broke"
 	echo "$showme"
-elif [[ $cmd != *40[1-9]* ]]
+elif [[ $cmd != 404 ]]
         then readarray -t array <<< "$cmd"
         showme=$(printf -- "%s\n" "${array[@]}")
         notbroke=$(echo $showme | awk ' {print $NF} ')
