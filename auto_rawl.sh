@@ -1,8 +1,5 @@
 #!/bin/bash
 
-if [ -a ./output ]
-	then rm -f ./output
-fi
 cmd=$(rawler "$1" --wait 1 | grep 200)
 if [ -z $1 ]
 	then echo "Aborting, no target specified..."
