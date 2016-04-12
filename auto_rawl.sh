@@ -13,6 +13,5 @@ elif [[ $cmd == *404* ]]; then
 	echo "Boo, 404s found on $broke"
 	echo "$showme"
 else
-        notbroke=$(echo $cmd | awk ' {print $1} ')
-	echo "Congrats! No 404's found on $notbroke"
+	echo "Congrats! No 404's found on $1"
 fi
