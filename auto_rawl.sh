@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cmd=$(rawler "$1" --wait 1 | grep 404)
+cmd=$(rawler "$1" --wait 0.5 | grep 404)
 if [ -z $1 ]
 	then echo "Aborting, no target specified..."
 	     echo ""
@@ -13,5 +13,5 @@ elif [[ $cmd == *404* ]]; then
 	echo "Boo, 404s found on $broke"
 	echo "$showme"
 else
-	echo "Congrats! No 404's found on $1"
+	echo "Congrats! No 404's found on $1\n"
 fi
