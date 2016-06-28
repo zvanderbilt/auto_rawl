@@ -5,11 +5,10 @@ require 'uri'
 @url = ARGV[0]
 
 def the_cmd()
-	uri = URI.parse(@url)
 	if @url.empty? 
     	puts "Aborting no target specified..."
 		exit 1
-	elsif uri.kind_of?(URI::HTTP) or uri.kind_of?(URI::HTTPS)
+	elsif @url.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)	
         puts @url
         @output = []
         IO.popen("rawler #@url --wait 1.0 -i wp-json | egrep -v '(200|301|302)'").each do |line|
@@ -19,7 +18,7 @@ def the_cmd()
         puts "On to the next one!"
 	else
         puts @url
-        puts "Invalid url. Please use absolute url."
+        puts "Invalid url. Please use valid url."
         puts "Useage: #$0 http://domain.tld"
         exit 1
 	end
