@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require 'uri'
+
+@url = ARGV[0]
+
+def the_cmd()
+	uri = URI.parse(@url)
+	if @url.empty? 
+    	puts "Aborting no target specified..."
+		exit 1
+	elsif uri.kind_of?(URI::HTTP) or uri.kind_of?(URI::HTTPS)
+        puts @url
+        @output = []
+        IO.popen("rawler #@url --wait 1.0 -i wp-json | egrep -v '(200|301|302)'").each do |line|
+            line.chomp
+            @output << line.chomp
+        end
+        puts "On to the next one!"
+	else
+        puts @url
+        puts "Invalid url. Please use absolute url."
+        puts "Useage: #$0 http://domain.tld"
+        exit 1
+	end
+end
+
+def the_results()
+	if @output.index{|s| s.match(/(404|ERROR)/)}
+		puts "Fail, 404s/Errors found on #{ARGV[0]}"
+		puts @output
+	else 
+		puts "Winning, no 404s found on #{ARGV[0]}"
+	end
+end
+
+the_cmd
+
+puts the_results
